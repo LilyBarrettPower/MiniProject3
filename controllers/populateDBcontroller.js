@@ -9,7 +9,7 @@ const populateDatabase = async (req, res) => {
 
         // await Rocket.sync({ force: true });
         // await LaunchSite.sync({ force: true });
-        // await Flight.sync({ force: true }); // Force table creation on each run, remove in production
+        // await Flight.sync({ force: true }); // Force table creation on first run, remove in production
       
 
         // Bulk create data for Rocket table

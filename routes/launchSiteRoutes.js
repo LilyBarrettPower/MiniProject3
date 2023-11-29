@@ -3,21 +3,21 @@ let router = express.Router(); // use express.Router
 let Controllers = require("../controllers"); //index.js
 
 router.get('/', (req, res) => {
-    Controllers.launchsitesController.getLaunchSites(res);
+    Controllers.launchSitesController.getLaunchSites(res);
 });
 
 router.post('/create', (req, res) => {
-    Controllers.flightsController.createLaunchSite(req.body, res);
+    Controllers.launchSitesController.createLaunchSite(req.body, res);
 });
 
 //put used to create new posts
-router.put('/:id', (req, res) => {
-    Controllers.flightsController.updateLaunchSite(req, res);
+router.put('/:siteID', (req, res) => {
+    Controllers.launchSitesController.updateLaunchSite(req, res);
 });
 
 // delete used to delete posts 
-router.delete('/:id', (req, res) => {
-    Controllers.flightsController.deleteLaunchSite(req, res);
+router.delete('/:siteID', (req, res) => {
+    Controllers.launchSitesController.deleteLaunchSite(req, res);
 });
 
 module.exports = router;
