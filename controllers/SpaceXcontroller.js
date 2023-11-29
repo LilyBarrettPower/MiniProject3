@@ -19,7 +19,6 @@ const fetchAndFilterLaunches = async (req, res) => {
                 launchSuccess: launch.launch_success,
                 landSuccess: launch.land_success,
                 videoLink: launch.links.video_link,
-                details: launch.details,
                 rocketID: launch.rocket.rocket_id,
                 rocketType: launch.rocket.rocket_type,
                 siteID: launch.launch_site.site_id,
@@ -33,7 +32,16 @@ const fetchAndFilterLaunches = async (req, res) => {
     }
 };
 
+const populateDB = async (req, res) => {
+    try {
+        await populateDBcontroller.populateDatabase(req, res);
+    } catch (error) {
+        console.error("error populating database: ", error.message)
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
+
 module.exports = {
     fetchAndFilterLaunches,
-    populateDBcontroller
+    populateDB
 }

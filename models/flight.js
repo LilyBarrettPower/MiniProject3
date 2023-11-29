@@ -29,9 +29,6 @@ Flight.init(
         videoLink: {
             type: DataTypes.STRING,
         },
-        details: {
-            type: DataTypes.STRING,
-        },
         rocketID: {
             type: DataTypes.STRING,
             references: {
