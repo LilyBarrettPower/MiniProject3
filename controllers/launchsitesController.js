@@ -23,7 +23,7 @@ const createLaunchSite = (data, res) => {
 
 //this is the controller
 const updateLaunchSite = (req, res) => {
-    Models.LaunchSite.update(req.body, {
+    Models.LaunchSite.update(req.body, { 
         where: { siteID: req.params.siteID }
     })
         .then(data => res.send({ result: 200, data: data }))
@@ -36,6 +36,7 @@ const deleteLaunchSite = (req, res) => {
     //deletes the user matching the ID from the param
     Models.LaunchSite.destroy({
         where: { siteID: req.params.siteID }
+
     })
         .then(data => res.send({ result: 200, data: data }))
         .catch(err => {
