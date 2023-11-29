@@ -1,5 +1,6 @@
 
 const SpaceXlibrary = require('../libraries/SpaceXlibrary');
+const populateDBcontroller = require('./populateDBcontroller');
 
 const spaceXfetch = new SpaceXlibrary();
 
@@ -33,5 +34,6 @@ const fetchAndFilterLaunches = async (req, res) => {
 };
 
 module.exports = {
-    fetchAndFilterLaunches
+    fetchAndFilterLaunches,
+    populateDBcontroller
 }
