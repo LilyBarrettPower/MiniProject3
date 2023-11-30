@@ -25,6 +25,6 @@ Rocket.init(
     }
 );
 
-// Rocket.hasMany(Flight, { foreignKey: 'rocketID', sourceKey: 'rocketID' });
+
 
 module.exports = Rocket;

@@ -25,6 +25,5 @@ LaunchSite.init(
     }
 );
 
-// LaunchSite.hasMany(Flight, { foreignKey: 'siteID', sourceKey: 'siteID' });
 
 module.exports = LaunchSite;
