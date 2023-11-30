@@ -8,7 +8,6 @@ const populateDatabase = async (req, res) => {
         const spaceXData = await spaceXfetch.fetchSpaceData();
 
         // await Rocket.sync({ force: true });
-        // await LaunchSite.sync({ force: true });
         // await Flight.sync({ force: true }); // Force table creation on first run, remove in production
       
 
@@ -30,25 +29,6 @@ const populateDatabase = async (req, res) => {
         // })), { updateOnDuplicate: ['rocketID'] });
 
         console.log('Data inserted into Rocket table');
-
-
-        await Promise.all(spaceXData.map(async (launch) => {
-            const [site, created] = await LaunchSite.findOrCreate({
-                where: { siteID: launch.launch_site.site_id },
-                defaults: {
-                    siteName: launch.launch_site.site_name
-                },
-            });
-            console.log(`Launch Site ${site.siteID} ${created ? 'created' : 'already exists'}`);
-        }));
-
-        // Bulk create data for LaunchSite table
-        // await LaunchSite.bulkCreate(spaceXData.map(launch => ({
-        //     siteID: launch.launch_site.site_id,
-        //     siteName: launch.launch_site.site_name,
-        // })), { updateOnDuplicate: ['siteID'] });
-
-        console.log('Data inserted into LaunchSite table');
 
 
         await Promise.all(spaceXData.map(async (launch) => {

@@ -1,7 +1,6 @@
 const { DataTypes, Model } = require('sequelize');
 const dbConnect = require('../dbConnect');
 const sequelizeInstance = dbConnect.Sequelize;
-const Flight = require('./flight');
 
 class Rocket extends Model {}
 
@@ -24,7 +23,6 @@ Rocket.init(
         freezeTableName: true,
     }
 );
-
 
 
 module.exports = Rocket;

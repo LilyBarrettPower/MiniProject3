@@ -2,7 +2,6 @@ const { DataTypes, Model } = require('sequelize');
 const dbConnect = require('../dbConnect');
 const sequelizeInstance = dbConnect.Sequelize;
 const Rocket = require('./rocket');
-const LaunchSite = require('./launchSite');
 
 class Flight extends Model { }
 
@@ -36,13 +35,6 @@ Flight.init(
                 key: 'rocketID',
             },
         },
-        siteID: {
-            type: DataTypes.STRING,
-            references: {
-                model: LaunchSite,
-                key: 'siteID',
-            },
-        },
     },
     {
         sequelize: sequelizeInstance,
@@ -53,7 +45,6 @@ Flight.init(
 );
 
 Flight.belongsTo(Rocket, { foreignKey: 'rocketID', targetKey: 'rocketID' });
-Flight.belongsTo(LaunchSite, { foreignKey: 'siteID', targetKey: 'siteID' });
 
 
 module.exports = Flight;

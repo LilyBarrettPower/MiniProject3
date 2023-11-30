@@ -21,8 +21,5 @@ serverApp.use('/spaceapi/rockets', rocketRoutes);
 let flightRoutes = require('./routes/flightRoutes');
 serverApp.use('/spaceapi/flights', flightRoutes);
 
-let launchSiteRoutes = require('./routes/launchSiteRoutes');
-serverApp.use('/spaceapi/launchsites', launchSiteRoutes);
-
 // Start the server as log a message to the console 
 serverApp.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
